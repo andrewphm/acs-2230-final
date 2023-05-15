@@ -32,3 +32,5 @@ app.listen(process.env.PORT || 5000, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 5000}`);
   console.log(`http://localhost:${process.env.PORT || 5000}`);
 });
+
+module.exports = app;
