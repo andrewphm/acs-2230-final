@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const autoPopulate = require('../utils/autoPopulate');
+const Product = require('./Product');
 
 const categorySchema = new mongoose.Schema({
   name: {
