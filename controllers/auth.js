@@ -1,14 +1,17 @@
-const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 const signup = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, hashedPassword });
+    const user = await User.create({ firstName, lastName, email, hashedPassword });
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-    res.status(201).json({ user: { name: user.name, email: user.email }, accessToken: token });
+    res.status(201).json({
+      user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+      accessToken: token,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -27,7 +30,10 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-    res.status(200).json({ user: { name: user.name, email: user.email }, accessToken: token });
+    res.status(200).json({
+      user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+      accessToken: token,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
