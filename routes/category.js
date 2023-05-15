@@ -1,5 +1,7 @@
 const router = require('express').Router();
 
+const { verifyToken, verifyAdmin } = require('../controllers/verifyToken');
+
 const {
   createCategory,
   getAllCategories,
@@ -8,10 +10,10 @@ const {
   updateCategory,
 } = require('../controllers/category');
 
-router.post('/', createCategory);
+router.post('/', verifyAdmin, createCategory);
 router.get('/', getAllCategories);
 router.get('/:id', getOneCategory);
-router.delete('/:id', deleteCategory);
-router.put('/:id', updateCategory);
+router.delete('/:id', verifyAdmin, deleteCategory);
+router.put('/:id', verifyAdmin, updateCategory);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 
 dotenv.config();
 const app = express();
@@ -14,9 +15,14 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/category', require('./routes/category'));
 app.use('/api/product', require('./routes/product'));
 app.use('/api/order', require('./routes/order'));
+app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send(`
+    <h1>Welcome to My Ecommerce API!</h1>
+    <p>Visit the <a href="/docs">documentation</a> for more information.</p>
+    <p>Made by <a href="https://github.com/andrewphm">Andrew Pham</a>❤️</p>
+  `);
 });
 
 require('./config/db-setup');

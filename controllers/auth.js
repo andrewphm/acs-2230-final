@@ -30,6 +30,9 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+
+    res.cookie('accessToken', accessToken, { maxAge: 900000, httpOnly: true });
+
     res.status(200).json({
       user: { firstName: user.firstName, lastName: user.lastName, email: user.email },
       accessToken: token,

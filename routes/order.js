@@ -8,10 +8,12 @@ const {
   deleteOrder,
 } = require('../controllers/order');
 
-router.post('/', createOrder);
-router.get('/', getAllOrders);
-router.get('/:id', getOrderById);
-router.delete('/:id', deleteOrder);
-router.put('/:id', updateOrder);
+const { verifyToken, verifyAdmin } = require('../controllers/verifyToken');
+
+router.post('/', verifyToken, createOrder);
+router.get('/', verifyAdmin, getAllOrders);
+router.get('/:id', verifyToken, getOrderById);
+router.delete('/:id', verifyToken, deleteOrder);
+router.put('/:id', verifyToken, updateOrder);
 
 module.exports = router;
