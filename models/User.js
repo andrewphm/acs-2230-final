@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   hashedPassword: {
     type: String,
     required: true,
+    select: false,
   },
   isAdmin: {
     type: Boolean,
