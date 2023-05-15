@@ -15,13 +15,14 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/category', require('./routes/category'));
 app.use('/api/product', require('./routes/product'));
 app.use('/api/order', require('./routes/order'));
+app.use('/api/user', require('./routes/user'));
 app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 app.get('/', (req, res) => {
   res.send(`
     <h1>Welcome to My Ecommerce API!</h1>
     <p>Visit the <a href="/docs">documentation</a> for more information.</p>
-    <p>Made by <a href="https://github.com/andrewphm">Andrew Pham</a>❤️</p>
+    <p>Made by <a href="https://github.com/andrewphm">Andrew Pham</a>🫶</p>
   `);
 });
 

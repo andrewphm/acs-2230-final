@@ -1,0 +1,36 @@
+# My Ecommerce API
+
+My Ecommerce API is a simple and efficient RESTful API built using Node.js, Express, and MongoDB. It provides an easy-to-use interface for managing categories, products, orders, and users within an eCommerce platform.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [API Documentation](#api-documentation)
+  - [Authentication](#authentication)
+    - [Signup](#signup)
+    - [Login](#login)
+  - [Categories](#categories)
+    - [Create Category](#create-category)
+    - [Get All Categories](#get-all-categories)
+    - [Get One Category](#get-one-category)
+    - [Update Category](#update-category)
+    - [Delete Category](#delete-category)
+  - [Products](#products)
+    - [Create Product](#create-product)
+    - [Get All Products](#get-all-products)
+    - [Get One Product](#get-one-product)
+    - [Update Product](#update-product)
+    - [Delete Product](#delete-product)
+  - [Orders](#orders)
+    - [Create Order](#create-order)
+    - [Get All Orders](#get-all-orders)
+    - [Get Order By ID](#get-order-by-id)
+    - [Update Order](#update-order)
+    - [Delete Order](#delete-order)
+  - [Users](#users)
+    - [Get All Users](#get-all-users)
+    - [Get One User](#get-one-user)
+    - [Update User](#update-user)
+    - [Delete User](#delete-user)

@@ -8,3 +8,5 @@ router.get('/', verifyAdmin, getAllUsers);
 router.get('/:id', verifyAdmin, getOneUser);
 router.delete('/:id', verifyToken, deleteUser);
 router.put('/:id', verifyAdmin, updateUser);
+
+module.exports = router;
